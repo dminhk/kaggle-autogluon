@@ -18,11 +18,14 @@ directory = '/kaggle/input/directory_name/'
 
 train = TabularDataset(directory + 'train.csv')
 test = TabularDataset(directory + 'test.csv')
+```
 
+```
 label = 'target'
 time_limit = 3600
 eval_metric = 'rmse'
 
+#predictor = TabularPredictor(label=label).fit(train)
 predictor = TabularPredictor(label=label, eval_metric=eval_metric).fit(train, presets=['best_quality'], time_limit=time_limit)
 
 submission = pd.read_csv(directory + 'sample_submission.csv')
