@@ -64,6 +64,11 @@ eval_metric = 'rmse'         # eval_metric options below
 
 predictor = AutoMMPredictor(label=label)
 predictor.fit(train_data=train,time_limit=time_limit)
+
+submission = pd.read_csv(directory + 'sample_submission.csv')
+submission[label] = predictor.predict(test)
+submission.to_csv('submission.csv', index=False)
+submission.head()
 ```
 
 
