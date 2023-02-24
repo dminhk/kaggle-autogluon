@@ -36,8 +36,8 @@ label = 'target'             # target variable
 time_limit = 3600            # Evaluation Metric 
 eval_metric = 'rmse'         # eval_metric options below
 
-#predictor = TabularPredictor(label=label).fit(train)
-predictor = TabularPredictor(label=label, eval_metric=eval_metric).fit(train, presets=['best_quality'], time_limit=time_limit)
+predictor = TabularPredictor(label=label).fit(train)
+# predictor = TabularPredictor(label=label, eval_metric=eval_metric).fit(train, presets=['best_quality'], time_limit=time_limit)
 
 submission = pd.read_csv(directory + 'sample_submission.csv')
 submission[label] = predictor.predict(test)
@@ -64,6 +64,7 @@ eval_metric = 'rmse'         # eval_metric options below
 
 predictor = AutoMMPredictor(label=label)
 predictor.fit(train_data=train,time_limit=time_limit)
+# predictor.fit(train_data=train, presets='best_quality', time_limit=time_limit)
 
 submission = pd.read_csv(directory + 'sample_submission.csv')
 submission[label] = predictor.predict(test)
