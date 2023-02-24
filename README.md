@@ -63,7 +63,6 @@ test = TabularDataset(directory + 'test.csv')
 ```
 label = 'target'             # target variable
 time_limit = 3600            # Evaluation Metric 
-eval_metric = 'rmse'         # eval_metric options below
 
 predictor = AutoMMPredictor(label=label)
 predictor.fit(train_data=train,time_limit=time_limit)
