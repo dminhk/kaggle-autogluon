@@ -12,6 +12,9 @@ Reference: https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-kag
 ```
 
 ### Multimodal
+
+* Notebook options > Accelerator: GPU P100
+
 ```
 !pip install autogluon.multimodal[all]
 !pip install autogluon.tabular[all]
