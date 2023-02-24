@@ -4,14 +4,25 @@ Reference: https://auto.gluon.ai/stable/tutorials/tabular_prediction/tabular-kag
 
 ## pip install
 
+### Tabular
+
 ```
 !pip install autogluon.tabular[all]
 #!pip install ray==2.0.0
 ```
 
+### Multimodal
+```
+!pip install autogluon.multimodal[all]
+!pip install autogluon.tabular[all]
+```
+
 ## predictor fit and redict
 
+### Tabular
+
 ```
+import pandas as pd
 from autogluon.tabular import TabularDataset, TabularPredictor
 
 directory = '/kaggle/input/directory_name/'          # Copy file path from Kaggle
@@ -33,6 +44,28 @@ submission[label] = predictor.predict(test)
 submission.to_csv('submission.csv', index=False)
 submission.head()
 ```
+### Multimodal
+
+```
+import pandas as pd
+from autogluon.multimodal import AutoMMPredictor
+from autogluon.tabular import TabularDataset, TabularPredictor
+
+directory = '/kaggle/input/directory_name/'          # Copy file path from Kaggle
+
+train = TabularDataset(directory + 'train.csv')
+test = TabularDataset(directory + 'test.csv')
+```
+
+```
+label = 'target'             # target variable
+time_limit = 3600            # Evaluation Metric 
+eval_metric = 'rmse'         # eval_metric options below
+
+predictor = AutoMMPredictor(label=label)
+predictor.fit(train_data=train,time_limit=time_limit)
+```
+
 
 ## eval_metric
 
