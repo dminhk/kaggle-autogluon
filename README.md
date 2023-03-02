@@ -87,8 +87,7 @@ submission.head()
 `[‘pinball_loss’]`
 
 ## improve prediction
-
-# "Many tabular datasets contain an "ID" integer column that is useless as a predictive feature. Such features are often actively harmful to include as predictors (eg. because they take larger values in test data than in training data)."
+"Many tabular datasets contain an "ID" integer column that is useless as a predictive feature. Such features are often actively harmful to include as predictors (eg. because they take larger values in test data than in training data)."
 Reference: https://github.com/autogluon/autogluon/issues/370
 
 ```
